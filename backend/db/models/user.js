@@ -6,11 +6,29 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association here
+      User.hasMany(models.Session, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+      });
     }
   }
 
   User.init(
     {
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 30],
+        },
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 30],
+        },
+      },
       username: {
         type: DataTypes.STRING,
         allowNull: false,
