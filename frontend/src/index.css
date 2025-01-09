@@ -9,7 +9,7 @@ body, #root {
     height: 100vh;
 }
 
-h1,h2, h3, h4 {
+h1 ,h2, h3, h4 {
     color: rgb(217, 176, 255);
     text-shadow: 0 0 .5em rgb(231, 206, 255);
 }

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Session.belongsTo(models.User, {
         foreignKey: "userId",
+        sourceKey: "id",
         onDelete: "CASCADE",
       });
       Session.belongsTo(models.Exercise, {
@@ -25,7 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Session.init(
     {
-      userId: DataTypes.INTEGER,
+      userId: {
+        type: DataTypes.INTEGER,
+        references: { model: "Users", key: "id" },
+      },
       exerciseId: DataTypes.INTEGER,
       startTime: DataTypes.DATE,
       endTime: DataTypes.DATE,
@@ -35,6 +39,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Session",
+      defaultScope: {
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
+      },
     }
   );
   return Session;

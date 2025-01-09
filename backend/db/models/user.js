@@ -1,5 +1,4 @@
 "use strict";
-
 const { Model, Validator } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
@@ -8,6 +7,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Session, {
         foreignKey: "userId",
+        sourceKey: "id",
+        onDelete: "CASCADE",
+      });
+      User.hasMany(models.Assignment, {
+        foreignKey: "teacherId",
+        as: "teacherAssignments",
+        sourceKey: "id",
+        onDelete: "CASCADE",
+      });
+      User.hasMany(models.Assignment, {
+        foreignKey: "studentId",
+        as: "studentAssignments",
+        sourceKey: "id",
         onDelete: "CASCADE",
       });
     }
@@ -15,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init(
     {
+      role: {
+        type: DataTypes.ENUM("student", "teacher"),
+        allowNull: false,
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,

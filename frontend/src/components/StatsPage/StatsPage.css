@@ -1,0 +1,76 @@
+
+
+.statsPage {
+    background: linear-gradient(0deg, 
+        rgba(2,0,36,1) 0%, 
+        rgba(75,9,121,1) 35%, 
+        rgba(252,0,255,1) 100%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+    padding: 0;
+    overflow: hidden; 
+}
+
+.h1-stats{
+    width: 70vw;
+    text-align: left;
+}
+
+.statsPage-stats-container {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(67, 20, 112, 0.877);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.total-sessions, .accuracy, .most-practiced {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    width: 90%;
+    
+}
+
+.carousel-container {
+    width: 70vw;
+    margin-top: 100px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.react-multi-carousel-item {
+    /* justify-content: center;
+    align-items: center; */
+    /* left: 2.2%; */
+}
+
+.session-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 50px; */
+    gap: 20px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(90, 18, 158, 0.877);
+    border-radius: 20px;
+}
+
+.session-data {
+    font-size: 1.2rem;
+}

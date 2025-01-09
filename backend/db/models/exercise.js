@@ -14,7 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       });
       Exercise.hasMany(models.Question, {
-        foreignKey: "exercisedId",
+        foreignKey: "exerciseId",
+        onDelete: "CASCADE",
+      });
+      Exercise.hasMany(models.Assignment, {
+        foreignKey: "exerciseId",
         onDelete: "CASCADE",
       });
     }
@@ -24,10 +28,16 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       difficulty: DataTypes.ENUM("Beginner", "Intermediate", "Advanced"),
+      type: DataTypes.STRING,
     },
     {
       sequelize,
       modelName: "Exercise",
+      defaultScope: {
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
+      },
     }
   );
   return Exercise;

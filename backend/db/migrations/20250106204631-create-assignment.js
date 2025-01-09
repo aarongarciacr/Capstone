@@ -1,4 +1,5 @@
 "use strict";
+/** @type {import('sequelize-cli').Migration} */
 
 const options = {};
 if (
@@ -7,10 +8,9 @@ if (
 ) {
   options.schema = process.env.SCHEMA;
 }
-
 module.exports = {
   async up(queryInterface, Sequelize) {
-    options.tableName = "Exercises"; // Specify the table name explicitly
+    options.tableName = "Assignments";
     await queryInterface.createTable(
       options.tableName,
       {
@@ -20,31 +20,23 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        name: {
-          type: Sequelize.STRING(50),
+        teacherId: {
+          type: Sequelize.INTEGER,
           allowNull: false,
-          unique: true,
+          references: { model: "Users", key: "id", schema: options },
+          onDelete: "CASCADE",
         },
-        description: {
-          type: Sequelize.TEXT,
+        studentId: {
+          type: Sequelize.INTEGER,
           allowNull: false,
+          references: { model: "Users", key: "id" },
+          onDelete: "CASCADE",
         },
-        difficulty: {
-          type: Sequelize.ENUM("Beginner", "Intermediate", "Advanced"),
+        exerciseId: {
+          type: Sequelize.INTEGER,
           allowNull: false,
-        },
-        type: {
-          type: Sequelize.STRING,
-          allowNull: false,
-          validate: {
-            isIn: [
-              [
-                "Interval Recognition",
-                "Chord Identification",
-                "Melody Transcription",
-              ],
-            ],
-          },
+          references: { model: "Exercises", key: "id" },
+          onDelete: "CASCADE",
         },
         createdAt: {
           allowNull: false,
@@ -60,9 +52,8 @@ module.exports = {
       options
     );
   },
-
-  down: async (queryInterface, Sequelize) => {
-    options.tableName = "Exercises";
+  async down(queryInterface, Sequelize) {
+    options.tableName = "Assignments";
     await queryInterface.dropTable(options);
   },
 };

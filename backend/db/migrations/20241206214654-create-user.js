@@ -8,17 +8,21 @@ if (
   options.schema = process.env.SCHEMA;
 }
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    options.tableName = "Users"; // Specify the table name explicitly
     await queryInterface.createTable(
-      "Users",
+      options.tableName,
       {
         id: {
           allowNull: false,
           autoIncrement: true,
           primaryKey: true,
           type: Sequelize.INTEGER,
+        },
+        role: {
+          type: Sequelize.ENUM("student", "teacher"),
+          allowNull: false,
         },
         firstName: {
           type: Sequelize.STRING(30),

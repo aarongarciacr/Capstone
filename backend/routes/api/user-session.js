@@ -73,6 +73,7 @@ router.get("/", (req, res) => {
       lastName: user.lastName,
       email: user.email,
       username: user.username,
+      role: user.role,
     };
     return res.json({
       user: safeUser,

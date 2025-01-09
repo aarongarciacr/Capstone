@@ -8,47 +8,63 @@ if (
   options.schema = process.env.SCHEMA;
 }
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Answers", {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
+    options.tableName = "Answers";
+    await queryInterface.createTable(
+      options.tableName,
+      {
+        id: {
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true,
+          type: Sequelize.INTEGER,
+        },
+        sessionId: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: "Sessions",
+              schema: options.schema,
+            },
+            key: "id",
+          },
+          onDelete: "CASCADE",
+        },
+        questionId: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: "Questions",
+              schema: options.schema,
+            },
+            key: "id",
+          },
+          onDelete: "CASCADE",
+        },
+        selectedAnswer: {
+          type: Sequelize.STRING(255),
+          allowNull: false,
+        },
+        isCorrect: {
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
+        },
+        createdAt: {
+          allowNull: false,
+          type: Sequelize.DATE,
+          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        updatedAt: {
+          allowNull: false,
+          type: Sequelize.DATE,
+          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        },
       },
-      sessionId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "Sessions", key: "id" },
-        onDelete: "CASCADE",
-      },
-      questionId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "Questions", key: "id" },
-        onDelete: "CASCADE",
-      },
-      selectedAnswer: {
-        type: Sequelize.STRING(255),
-        allowNull: false,
-      },
-      isCorrect: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-      },
-    });
+      options
+    );
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "Answers";

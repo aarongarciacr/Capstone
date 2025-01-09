@@ -31,6 +31,7 @@ module.exports = {
     benchmark: true,
     logQueryParameters: true,
     typeValidation: true,
+    logging: true,
     dialectOptions: {
       ssl: {
         require: true,
