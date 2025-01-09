@@ -1,0 +1,44 @@
+.homepage {
+    background: linear-gradient(0deg, 
+        rgba(2,0,36,1) 0%, 
+        rgba(75,9,121,1) 35%, 
+        rgba(252,0,255,1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+    padding: 0;
+    overflow: hidden; 
+}
+
+.students-container, .assignment-container, .stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%; 
+    height: auto;
+    margin-top: 68px;
+    transition: all 0.3s ease;
+
+}
+
+.exercise-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%; 
+    height: auto;
+    margin: 28px;
+    transition: transform 0.3s ease, width 0.3s ease
+
+}
+
+.students-container:hover, .assignment-container:hover, .stats-container:hover, .exercise-container:hover {
+    transform: translateY(-4px);
+    width: 41%;
+    cursor: pointer;
+}

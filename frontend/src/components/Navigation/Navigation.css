@@ -1,0 +1,32 @@
+.profile-dropdown {
+  position: absolute;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.logo {
+  border-radius: 50%;
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+
+}
+
+.nav-container {
+  background-color: #24052f9c;
+  box-shadow: 0 0 .5em rgb(231, 206, 255);
+  position: absolute;
+  width: 100%;
+}
+
+.nav-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 50px;
+  align-items: center;
+}
+
+.profile-box {
+  width: 3rem;
+}

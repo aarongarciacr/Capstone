@@ -1,0 +1,27 @@
+#modal-content {
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    background-color: #24052f;
+    box-shadow: 0 0 .5em rgb(231, 206, 255);
+
+}
+
+.login-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+input[type="text"],
+input[type="password"] {
+    border-radius: 5px;
+    padding: 8px;
+    background-color: rgb(182, 182, 182);
+    border: 0;
+}
+
+.login-btn-container {
+    padding-top: 15px;
+}

@@ -1,0 +1,19 @@
+/* TODO: Add sitewide styles */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body, #root {
+    height: 100vh;
+}
+
+h1,h2, h3, h4 {
+    color: rgb(217, 176, 255);
+    text-shadow: 0 0 .5em rgb(231, 206, 255);
+}
+
+a {
+    text-decoration: none;
+}
