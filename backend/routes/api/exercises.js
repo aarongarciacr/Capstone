@@ -153,7 +153,7 @@ router.post("/:exerciseId/start", requireAuth, async (req, res) => {
 
     const exercise = await Exercise.findByPk(exerciseId);
     if (!exercise) {
-      return res.status(404).json({ message: "Exercised not found" });
+      return res.status(404).json({ message: "Exercise not found" });
     }
 
     const newSession = await Session.create({
@@ -347,7 +347,14 @@ router.delete(
 router.get("/:exerciseId", async (req, res) => {
   try {
     const { exerciseId } = req.params;
-    const exercise = await Exercise.findByPk(exerciseId);
+    const exercise = await Exercise.findOne({
+      where: { id: exerciseId },
+      include: [
+        {
+          model: Question,
+        },
+      ],
+    });
 
     if (!exercise) {
       return res.status(404).json({ message: "Exercise not found" });

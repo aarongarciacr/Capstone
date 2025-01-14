@@ -1,8 +1,8 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User, Session, Exercise } = require("../../db/models");
-
+const { User, Session, Exercise, Assignment } = require("../../db/models");
+const { checkRole } = require("../../utils/checkRole");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
@@ -131,8 +131,13 @@ router.get("/:userId/stats", requireAuth, async (req, res) => {
     const { userId } = req.params;
     const { user } = req;
 
-    if (!user || user.id !== parseInt(userId, 10)) {
-      res.status(404).json({ message: "User not found or unauthorized" });
+    if (
+      !user ||
+      (user.id !== parseInt(userId, 10) && user.role !== "teacher")
+    ) {
+      return res
+        .status(404)
+        .json({ message: "User not found or unauthorized" });
     }
 
     const session = await Session.findAll({
@@ -182,5 +187,78 @@ router.get("/:userId/stats", requireAuth, async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+//Get all users with role = "students"
+router.get("/students", requireAuth, checkRole("teacher"), async (req, res) => {
+  const students = await User.findAll({
+    where: { role: "student" },
+    attributes: [
+      "id",
+      "firstName",
+      "lastName",
+      "username",
+      "email",
+      "createdAt",
+    ],
+  });
+
+  if (!students) {
+    return res.status(404).json({ message: "No students found" });
+  }
+
+  return res.status(200).json(students);
+});
+
+//get all session by userId
+router.get(
+  "/:userId/sessions",
+  requireAuth,
+  checkRole("teacher"),
+  async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+      const sessions = await Session.findAll({
+        where: { userId: userId },
+        include: [{ model: Exercise }],
+      });
+
+      return res.status(200).json({ sessions });
+    } catch (error) {
+      console.error("Error fetching sessions", error);
+      return res.status(500).json({ message: "Failed to fetch sessions" });
+    }
+  }
+);
+
+//get all assignments by studentId
+router.get(
+  "/:userId/assignments",
+  requireAuth,
+  checkRole("teacher"),
+  async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+      const assignments = await Assignment.findAll({
+        where: { studentId: userId },
+        include: [
+          {
+            model: Exercise,
+          },
+          {
+            model: User,
+            as: "student",
+          },
+        ],
+      });
+
+      return res.status(200).json({ assignments });
+    } catch (error) {
+      console.error("Error fetching assignments", error);
+      return res.status(500).json({ message: "Failed to fetch assignments" });
+    }
+  }
+);
 
 module.exports = router;

@@ -8,6 +8,15 @@ import * as sessionActions from "./store/user-session";
 import LandingPage from "./components/LandingPage/LandingPage";
 import HomePage from "./components/HomePage/HomePage";
 import StatsPage from "./components/StatsPage/StatsPage";
+import StatsPageTeacher from "./components/StatsPage/StatsPageTeacher";
+import SessionPage from "./components/SessionPage/SessionPage";
+import AssignmentsPage from "./components/AssignmentsPage/AssignmentsPage";
+import ExercisesPage from "./components/ExercisesPage/ExercisesPage";
+import DoExercisePage from "./components/ExercisesPage/DoExercisePage";
+import EditExercisePage from "./components/ExercisesPage/EditExercisePage";
+import StudentsPage from "./components/StudentsPage/StudentsPage";
+import AssignmentsPageTeacher from "./components/AssignmentsPage/AssignmentPageTeacher";
+import SessionPageTeacher from "./components/SessionPage/SessionPageTeacher";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -50,6 +59,42 @@ const router = createBrowserRouter([
       {
         path: "/stats",
         element: <StatsPage />,
+      },
+      {
+        path: "/stats/sessions/:sessionId",
+        element: <SessionPage />,
+      },
+      {
+        path: "/assignments",
+        element: <AssignmentsPage />,
+      },
+      {
+        path: "/exercises",
+        element: <ExercisesPage />,
+      },
+      {
+        path: "exercises/:exerciseId/start",
+        element: <DoExercisePage />,
+      },
+      {
+        path: "exercises/:exerciseId/edit",
+        element: <EditExercisePage />,
+      },
+      {
+        path: "students",
+        element: <StudentsPage />,
+      },
+      {
+        path: "/students/:studentId/stats",
+        element: <StatsPageTeacher />,
+      },
+      {
+        path: "/students/:studentId/assignments",
+        element: <AssignmentsPageTeacher />,
+      },
+      {
+        path: "/students/:studentId/sessions/:sessionId",
+        element: <SessionPageTeacher />,
       },
     ],
   },

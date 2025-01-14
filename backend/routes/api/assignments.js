@@ -134,4 +134,28 @@ router.delete(
   }
 );
 
+//complete(delete) Assignments
+router.delete("/:assignmentId/complete", requireAuth, async (req, res) => {
+  try {
+    const { assignmentId } = req.params;
+    const { id: userId } = req.user;
+    const assignment = await Assignment.findOne({
+      where: { id: assignmentId, studentId: userId },
+    });
+
+    if (!assignment) {
+      return res.status(404).json({ message: "Assignment not found" });
+    }
+
+    await assignment.destroy();
+
+    return res
+      .status(200)
+      .json({ message: "Assignment completed successfully" });
+  } catch (error) {
+    console.error("Error in COMPLETE /assignments/:assignmentId:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 module.exports = router;

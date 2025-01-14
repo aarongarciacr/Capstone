@@ -16,8 +16,10 @@ ul {
 .nav-container {
   background-color: #24052f9c;
   box-shadow: 0 0 .5em rgb(231, 206, 255);
-  position: absolute;
+  position: fixed;
   width: 100%;
+  z-index: 1000;
+  min-height: 100px;
 }
 
 .nav-box {

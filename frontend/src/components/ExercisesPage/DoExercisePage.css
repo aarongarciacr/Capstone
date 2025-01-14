@@ -1,0 +1,146 @@
+.exercise-todo-page{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* position: relative; */
+    /* overflow-x: hidden; */
+    /* overflow-y: auto;  */
+    /* padding-top: 50px; */
+    gap: 20px;
+    /* overflow: hidden;  */
+    /* box-sizing: border-box;  */
+    z-index: 0;
+}
+
+.exercisePage-question-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 20px;
+  width: 50%;
+    /* height: calc(80vh - 50px); */
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+    /* max-width: 100vw; */
+    /* padding: 20px; */
+    z-index: 10;
+    /* gap: 20px;      */
+    /* box-sizing: border-box;  */
+}
+
+.question-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    background-color: rgba(67, 20, 112, 0.877);
+    border-radius: 20px;
+    width: 100%;
+    min-width: 300px;
+    max-width: 96%;
+    height: 26%;
+    padding: 20px;
+    /* margin: auto; */
+    /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+  transition: all .03 ease;
+}
+
+.question-box:hover {
+  background-color: rgba(85, 30, 136, 0.877);
+
+}
+
+.options-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+  .radio-wrapper-32 {
+    display: flex;
+    align-items: center;
+  }
+
+  .radio-wrapper-32 label {
+    color: #A0ACB2;
+  }
+
+  .radio-wrapper-32 input {
+    -webkit-appearance: none; /* remove default */
+    display: block;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+    box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+    background-color: hsla(0,0%,0%,.2);
+    background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
+    background-repeat: no-repeat;
+    -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+      -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+    outline: none;
+  }
+  .radio-wrapper-32 input:checked {
+    -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+      -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+  }
+  .radio-wrapper-32 input:active {
+    -webkit-transform: scale(1.5);
+    -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+  }
+
+  .radio-wrapper-32 input,
+  .radio-wrapper-32 input:active {
+    background-position: 0 24px;
+  }
+  .radio-wrapper-32 input:checked {
+    background-position: 0 0;
+  }
+  .radio-wrapper-32 input:checked ~ input,
+  .radio-wrapper-32 input:checked ~ input:active {
+    background-position: 0 -24px;
+  }
+
+
+.exercisePage-question-container::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px;
+}
+
+.exercisePage-question-container::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 10px; 
+}
+
+.exercisePage-question-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg,  rgba(75, 9, 121, 0.9), rgba(252, 0, 255, 0.8),); 
+    border-radius: 10px; 
+    border: 1px solid rgba(67, 20, 112, 0.5); 
+}
+
+.exercisePage-question-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, rgba(252, 0, 255, 1), rgba(75, 9, 121, 1)); 
+}
+
+
+.exercisePage-question-container::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(45deg, rgba(255, 100, 255, 1), rgba(121, 0, 200, 1)); 
+}
+
+.submit-exercise-btn {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.circular-waves {
+  top: 25%;
+  z-index: -10;
+}

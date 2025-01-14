@@ -1,8 +1,14 @@
+#modal-content{
+  min-width: 300px;
+
+}
+
 .signup-modal-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px 0;
+    width: 100%;
 }
 
 .signup-btn-container {

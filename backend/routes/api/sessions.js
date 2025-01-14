@@ -1,17 +1,25 @@
 const express = require("express");
-const { Exercise, Session, Answer, Question } = require("../../db/models");
+const {
+  Exercise,
+  Session,
+  Answer,
+  Question,
+  User,
+} = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
+const { checkRole } = require("../../utils/checkRole");
+const { now } = require("sequelize/lib/utils");
 
 const router = express.Router();
 
 //submit answers
 router.post("/:sessionId/answers", requireAuth, async (req, res) => {
   const { sessionId } = req.params;
-  const { questionId, selectedAnswer } = req.body;
+  const { answers } = req.body;
   const { user } = req;
 
-  const session = await Session.findByPk(sessionId, {
-    where: { userId: user.id },
+  const session = await Session.findOne({
+    where: { userId: user.id, id: sessionId },
   });
   if (!session) {
     return res
@@ -19,43 +27,83 @@ router.post("/:sessionId/answers", requireAuth, async (req, res) => {
       .json({ error: "Session not found or unauthorized." });
   }
 
-  const question = await Question.findByPk(questionId);
-  if (!question) {
-    return res.status(404).json({ error: "Question not found." });
+  const results = [];
+  let totalAnswers = 0;
+  let totalCorrectAnswers = 0;
+
+  for (const answer of answers) {
+    const { questionId, selectedAnswer } = answer;
+
+    const question = await Question.findByPk(questionId);
+    if (!question) {
+      results.push({ questionId, error: "Question not found." });
+      continue;
+    }
+
+    const isCorrect = question.correctAnswer === selectedAnswer;
+
+    const newAnswer = await Answer.create({
+      sessionId,
+      questionId,
+      selectedAnswer,
+      isCorrect,
+    });
+    totalAnswers += 1;
+    if (newAnswer.isCorrect === true) {
+      totalCorrectAnswers += 1;
+    }
+    results.push({
+      questionId,
+      isCorrect,
+      message: "Answer recorded successfully.",
+    });
   }
 
-  const isCorrect = question.correctAnswer === selectedAnswer;
+  session.accuracy = (totalCorrectAnswers / totalAnswers) * 100;
+  session.endTime = new Date();
+  await session.save();
 
-  await Answer.create({
-    sessionId,
-    questionId,
-    selectedAnswer,
-    isCorrect,
-  });
-
-  res.status(201).json({ message: "Answer recorded successfully.", isCorrect });
+  res.status(201).json({ message: "Answers recorded successfully.", results });
 });
 
-//Get session by id
+// Get session by id
 router.get("/:sessionId", requireAuth, async (req, res) => {
   const { user } = req;
   const { sessionId } = req.params;
-  const session = await Session.findByPk(sessionId, {
-    where: {
-      userId: user.id,
-    },
-    include: [
-      {
-        model: Exercise,
-      },
-    ],
-  });
 
-  if (!session) {
-    return res.status(404).json({ message: "Session not found" });
+  try {
+    const session = await Session.findOne({
+      where: { id: sessionId },
+      include: [
+        {
+          model: Exercise,
+        },
+        {
+          model: Answer,
+        },
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName", "role"],
+        },
+      ],
+    });
+
+    if (!session) {
+      return res.status(404).json({ message: "Session not found" });
+    }
+
+    if (
+      session.userId !== user.id &&
+      !(user.role === "teacher" && session.User.role === "student")
+    ) {
+      return res.status(403).json({ message: "Unauthorized access" });
+    }
+
+    return res.status(200).json(session);
+  } catch (error) {
+    console.error("Error fetching session:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
-
-  return res.status(200).json(session);
 });
 
 //Get all user Sessions

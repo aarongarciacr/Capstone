@@ -1,150 +1,143 @@
 .landingPage {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-height: 100vh;
-/* margin: 0;  */
-/* padding: 0; */
-/* overflow: hidden;  */
-}
-
-.background-img {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    z-index: -1000;
-}
-
-/* .container {
-  position: absolute;
-  top: 30vh;
-  left: 30vw;
-} */
-
-.homepage-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: fit-content;
-    margin: auto;
-    /* margin-top: 50%; */
-    background-color: #24052f;
-    padding: 30px;
-    border-radius: 20px;
-    /* border: 1px solid white; */
-    /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
-}
-
-@property --gradient-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* margin: 0;  */
+  /* padding: 0; */
+  /* overflow: hidden;  */
   }
   
-  :root {
-    --clr-1: #24052f;
-    --clr-2: #5f0f7e;
-    --clr-3: #c506ef;
-    --clr-4: #1811e5;
-    --clr-5: #0ba8e6;
+  .background-img {
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      z-index: -100;
   }
-  
   
   .homepage-box {
-    height: 30vh;
-    position: relative;
-    /* top: 20%; */
-  }
-  
-  .homepage-box::before,
-  .homepage-box::after {
-    content: "";
-    position: absolute;
-    inset: -0.5rem;
-    z-index: -1;
-    background: conic-gradient(
-      from var(--gradient-angle),
-      var(--clr-3),
-      var(--clr-4),
-      var(--clr-5),
-      var(--clr-4),
-      var(--clr-3)
-    );
-    border-radius: inherit;
-    animation: rotation 20s linear infinite;
-  }
-  
-  .homepage-box::after {
-    filter: blur(3.5rem);
-  }
-  
-  @keyframes rotation {
-    0% {
-      --gradient-angle: 0deg;
-    }
-    100% {
-      --gradient-angle: 360deg;
-    }
-  }
-  
-  .h1-title, p {
-    color: rgb(217, 176, 255);
-    text-shadow: 0 0 .5em rgb(231, 206, 255);
-
-  }
-
-
-  .signup-btn, .login-btn {
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
-    border: .15em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 15px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 1em .25em var(--glow-color),
-          0 0 4em 1em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
-    text-shadow: 0 0 .5em var(--glow-color);
-    position: relative;
-    transition: all 0.3s;
-    /* max-width: fit-content; */
-    /* width: 200px; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: fit-content;
+      /* margin: auto; */
+      /* margin-top: 50%; */
+      background-color: #24052f;
+      padding: 30px;
+      border-radius: 20px;
     }
   
-  
-  .signup-btn:hover,
-   .login-btn:hover {
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-          0 0 4em 2em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
-  }
-  
-  .signup-btn:active,
- .login-btn:active {
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-          0 0 2.5em 2em var(--glow-spread-color),
-          inset 0 0 .5em .25em var(--glow-color);
-  }
-  
+  @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+    
+    :root {
+      --clr-1: #24052f;
+      --clr-2: #5f0f7e;
+      --clr-3: #c506ef;
+      --clr-4: #1811e5;
+      --clr-5: #0ba8e6;
+    }
+    
+    
+    .homepage-box {
+      height: 30vh;
+      position: relative;
+      /* top: 7%; */
 
-  .homepage-buttons {
-    padding-top: 10%;
-    display: flex;
-    gap: 10%;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
+    }
+    
+    .homepage-box::before,
+    .homepage-box::after {
+      content: "";
+      position: absolute;
+      inset: -0.5rem;
+      z-index: -1;
+      background: conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-3),
+        var(--clr-4),
+        var(--clr-5),
+        var(--clr-4),
+        var(--clr-3)
+      );
+      border-radius: inherit;
+      animation: rotation 20s linear infinite;
+    }
+    
+    .homepage-box::after {
+      filter: blur(3.5rem);
+    }
+    
+    @keyframes rotation {
+      0% {
+        --gradient-angle: 0deg;
+      }
+      100% {
+        --gradient-angle: 360deg;
+      }
+    }
+    
+    .h1-title, p {
+      color: rgb(217, 176, 255);
+      text-shadow: 0 0 .5em rgb(231, 206, 255);
+  
+    }
+  
+  
+    .signup-btn, .login-btn {
+      --glow-color: rgb(217, 176, 255);
+      --glow-spread-color: rgba(191, 123, 255, 0.781);
+      --enhanced-glow-color: rgb(231, 206, 255);
+      --btn-color: rgb(100, 61, 136);
+      border: .15em solid var(--glow-color);
+      padding: 1em 3em;
+      color: var(--glow-color);
+      font-size: 15px;
+      font-weight: bold;
+      background-color: var(--btn-color);
+      border-radius: 1em;
+      outline: none;
+      box-shadow: 0 0 1em .25em var(--glow-color),
+            0 0 4em 1em var(--glow-spread-color),
+            inset 0 0 .75em .25em var(--glow-color);
+      text-shadow: 0 0 .5em var(--glow-color);
+      position: relative;
+      transition: all 0.3s;
+      /* max-width: fit-content; */
+      /* width: 200px; */
+      }
+    
+    
+    .signup-btn:hover,
+     .login-btn:hover {
+      color: var(--btn-color);
+      background-color: var(--glow-color);
+      box-shadow: 0 0 1em .25em var(--glow-color),
+            0 0 4em 2em var(--glow-spread-color),
+            inset 0 0 .75em .25em var(--glow-color);
+    }
+    
+    .signup-btn:active,
+   .login-btn:active {
+      box-shadow: 0 0 0.6em .25em var(--glow-color),
+            0 0 2.5em 2em var(--glow-spread-color),
+            inset 0 0 .5em .25em var(--glow-color);
+    }
+    
+  
+    .homepage-buttons {
+      padding-top: 10%;
+      display: flex;
+      gap: 10%;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }

@@ -1,0 +1,51 @@
+.session-page {
+    background: linear-gradient(0deg, 
+        rgba(2,0,36,1) 0%, 
+        rgba(75,9,121,1) 35%, 
+        rgba(252,0,255,1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative; 
+    overflow: hidden; 
+    z-index: -1000; 
+    box-sizing: border-box; 
+}
+
+.session-container, 
+.sessionPage-exercise-container, 
+.sessionPage-questions-container {
+    max-height: calc(100vh - 50px);
+    overflow-y: auto;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(67, 20, 112, 0.877);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 25px;
+    z-index: 10;
+    gap: 7px;
+}
+
+
+.lottie{
+    position: absolute;
+    z-index: 0;
+}
+
+.dog {
+    bottom: -220px;
+    right: -20px;
+}
+
+.books {
+    top: -100px;
+    left: -100px;
+}

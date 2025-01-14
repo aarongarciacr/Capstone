@@ -1,0 +1,96 @@
+.exercises-page {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+    /* width: 100vw; */
+    /* position: relative;  */
+    /* overflow: hidden;  */
+    /* box-sizing: border-box;  */
+}
+
+.h1-exercises{
+    padding-top: 50px;
+}
+
+.exercisesPage-exercises-container {
+    height: calc(80vh - 50px);
+    overflow-y: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    padding-top: 35px;
+    overflow: visible;
+    z-index: 10;
+    gap: 7px; 
+}
+
+.singleExercise-box{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(67, 20, 112, 0.877);
+     border-radius: 20px;
+     width: 70%;
+     height: 26%;
+     padding: 20px;
+     margin: auto;
+}
+
+.exercisePage-exercise-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.8rem;
+}
+.start-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.edit-button, .delete-button {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .15em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 .8em .25em var(--glow-color),
+          0 0 4em .8em var(--glow-spread-color),
+          inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+    }
+  
+  
+
+   .edit-button:hover,
+   .delete-button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+          0 0 4em 2em var(--glow-spread-color),
+          inset 0 0 .75em .25em var(--glow-color);
+    cursor: pointer;
+  }
+  
+
+ .edit-button:active,
+ .delete-button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+          0 0 2.5em 2em var(--glow-spread-color),
+          inset 0 0 .5em .25em var(--glow-color);
+  }

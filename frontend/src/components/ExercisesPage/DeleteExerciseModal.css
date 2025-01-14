@@ -1,0 +1,8 @@
+.delete-buttons {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}

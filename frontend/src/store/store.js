@@ -3,11 +3,17 @@ import { thunk } from "redux-thunk";
 import userSessionReducer from "./user-session";
 import statsReducer from "./user";
 import sessionReducer from "./session";
+import questionsReducer from "./question";
+import assignmentsReducer from "./assignment";
+import exercisesReducer from "./exercise";
 
 const rootReducer = combineReducers({
   userSession: userSessionReducer,
   stats: statsReducer,
   sessions: sessionReducer,
+  questions: questionsReducer,
+  assignments: assignmentsReducer,
+  exercises: exercisesReducer,
 });
 
 let enhancer;

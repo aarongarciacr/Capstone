@@ -13,7 +13,7 @@ function LandingPage() {
   if (sessionUser) return <Navigate to="/home" replace={true} />;
 
   return (
-    <main className="landingPage">
+    <div className="landingPage">
       <div className="homepage-box">
         <h1 className="h1-title">Sign up to start your training!</h1>
         <div className="homepage-buttons">
@@ -40,7 +40,7 @@ function LandingPage() {
           width: "100%",
         }}
       ></div>
-    </main>
+    </div>
   );
 }
 
