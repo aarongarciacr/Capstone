@@ -26,7 +26,7 @@ function ExercisesPage() {
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleStart = async (exerciseId) => {
-    const session = await dispatch(fetchStartExercise(exerciseId));
+    await dispatch(fetchStartExercise(exerciseId));
     navigate(`/exercises/${exerciseId}/start`);
   };
   0;

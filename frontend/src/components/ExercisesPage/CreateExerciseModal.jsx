@@ -6,7 +6,7 @@ import { fetchAddQuestions } from "../../store/question";
 import { useModal } from "../../context/Modal";
 import "./CreateExerciseModal.css";
 
-function CreateExerciseModel({ navigate }) {
+function CreateExerciseModel() {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const { closeModal } = useModal();
   const dispatch = useDispatch();

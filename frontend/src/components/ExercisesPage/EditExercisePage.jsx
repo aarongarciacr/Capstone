@@ -10,7 +10,7 @@ import { fetchUpdateQuestion } from "../../store/question";
 import "./EditExercisePage.css";
 import { useModal } from "../../context/Modal";
 
-function EditExercisePage({ navigate, exerciseId }) {
+function EditExercisePage({ exerciseId }) {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const { closeModal } = useModal();
   const exercise = useSelector(

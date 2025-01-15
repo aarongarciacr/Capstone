@@ -1,9 +1,5 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
-import {
-  fetchDeleteExercise,
-  fetchGetAllExercises,
-} from "../../store/exercise";
 import "./DeleteAssignmentModal.css";
 import {
   fetchDeleteAssignment,

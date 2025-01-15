@@ -1,18 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import BooksLottie from "../../assets/lotties/books.json";
-import DogLottie from "../../assets/lotties/dogWithHeadphones.json";
-import Lottie from "lottie-react";
 import { useEffect } from "react";
 import "react-multi-carousel/lib/styles.css";
-import {
-  fetchCompleteAssignment,
-  fetchDeleteAssignment,
-  fetchGetAssignments,
-  fetchGetStudentAssignments,
-} from "../../store/assignment";
-import OpenModalButton from "../OpenModalButton/OpenModalButton";
-import DeleteAssignmentModal from "./DeleteAssignmentModal";
+import { fetchGetStudentAssignments } from "../../store/assignment";
 import { fetchGetAllExercises } from "../../store/exercise";
 import { fetchAssignExercise } from "../../store/assignment";
 import { useModal } from "../../context/Modal";

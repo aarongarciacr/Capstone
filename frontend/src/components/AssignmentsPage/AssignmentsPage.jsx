@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import "react-multi-carousel/lib/styles.css";
 import {
   fetchCompleteAssignment,
-  fetchDeleteAssignment,
   fetchGetAssignments,
 } from "../../store/assignment";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
@@ -28,7 +27,7 @@ function AssignmentsPage() {
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleStartButton = async (exerciseId, assignmentId) => {
-    const session = await dispatch(fetchStartExercise(exerciseId));
+    await dispatch(fetchStartExercise(exerciseId));
     await dispatch(fetchCompleteAssignment(assignmentId));
     navigate(`/exercises/${exerciseId}/start`);
   };

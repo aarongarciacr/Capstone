@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import BooksLottie from "../../assets/lotties/books.json";
 import DogLottie from "../../assets/lotties/dogWithHeadphones.json";
 import Lottie from "lottie-react";
@@ -19,12 +19,11 @@ function AssignmentsPageTeacher() {
   );
 
   console.log("assignment", assignments);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchGetStudentAssignments(studentId));
-  }, [dispatch]);
+  }, [dispatch, studentId]);
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 

@@ -6,8 +6,6 @@ import Lottie from "lottie-react";
 import "./StudentsPage.css";
 import { useEffect } from "react";
 import { fetchGetStudents } from "../../store/user";
-import { fetchGetAllSessions } from "../../store/session";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 function StudentsPage() {
@@ -60,6 +58,12 @@ function StudentsPage() {
           <h1>No students found</h1>
         )}
       </div>
+      <section className="headphones-container">
+        <Lottie animationData={HeadphonesLottie} />{" "}
+      </section>
+      <section className="musicians-container">
+        <Lottie animationData={MusiciansLottie} />{" "}
+      </section>
     </main>
   );
 }
