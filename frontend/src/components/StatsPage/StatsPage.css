@@ -9,6 +9,7 @@
     margin: 0; 
     padding-top: 50px;
     overflow: hidden; 
+    height: 100vh;
 }
 .statsPage-student {
     display: flex;
@@ -106,7 +107,7 @@
 }
 
 .musicians-container {
-    position: absolute;
+    position: fixed;
     /* transform: rotateZ(-deg); */
     left: 5%;
     top: 17%;

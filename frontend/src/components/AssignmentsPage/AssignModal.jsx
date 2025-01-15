@@ -16,6 +16,7 @@ import DeleteAssignmentModal from "./DeleteAssignmentModal";
 import { fetchGetAllExercises } from "../../store/exercise";
 import { fetchAssignExercise } from "../../store/assignment";
 import { useModal } from "../../context/Modal";
+import "./AssignModal.css";
 
 function AssignModal({ studentId }) {
   const sessionUser = useSelector((state) => state.userSession?.user);
@@ -42,9 +43,9 @@ function AssignModal({ studentId }) {
   };
 
   return (
-    <div>
+    <div className="assign-modal-ctn">
       <h1>Exercises</h1>
-      <section>
+      <section className="section-box">
         {exercises?.length > 0 ? (
           exercises.map((exercise, index) => (
             <div className="singleExercise-box" key={index}>
@@ -57,6 +58,7 @@ function AssignModal({ studentId }) {
               <button
                 type="button"
                 onClick={() => handleAssign(exercise.id, studentId)}
+                className="start-button"
               >
                 Assign
               </button>

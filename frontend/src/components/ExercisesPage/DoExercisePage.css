@@ -1,19 +1,10 @@
 .exercise-todo-page{
-    display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* position: relative; */
-    /* overflow-x: hidden; */
-    /* overflow-y: auto;  */
-    /* padding-top: 50px; */
-    gap: 20px;
-    /* overflow: hidden;  */
-    /* box-sizing: border-box;  */
-    z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 0;
 }
 
 .exercisePage-question-container {

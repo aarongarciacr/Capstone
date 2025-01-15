@@ -39,30 +39,30 @@ function AssignmentsPage() {
         <h1 className="h1-assignments">Assignments</h1>
         <section className="assignmentsPage-assignments-container">
           {assignments?.length > 0 ? (
-            assignments.map((assignment, index) => (
+            assignments?.map((assignment, index) => (
               <div className="assignmentPage-assignment-box" key={index}>
                 <div className="assignmentPage-exercise-box">
-                  <p>Exercise: {assignment.Exercise.name}</p>
-                  <p>Description: {assignment.Exercise.description}</p>
-                  <p>Difficulty: {assignment.Exercise.difficulty}</p>
+                  <p>Exercise: {assignment?.Exercise?.name}</p>
+                  <p>Description: {assignment?.Exercise?.description}</p>
+                  <p>Difficulty: {assignment?.Exercise?.difficulty}</p>
                   <p>
                     Assigned Date:{" "}
-                    {new Date(assignment.createdAt).toLocaleDateString()}
+                    {new Date(assignment?.createdAt).toLocaleDateString()}
                   </p>
-                  {sessionUser.role === "teacher" && (
+                  {sessionUser?.role === "teacher" && (
                     <p>
-                      Assign To: {assignment.student.firstName}{" "}
-                      {assignment.student.lastName}
+                      Assign To: {assignment?.student?.firstName}{" "}
+                      {assignment?.student?.lastName}
                     </p>
                   )}
                 </div>
                 <div className="start-btn-container">
-                  {sessionUser.role === "teacher" ? (
+                  {sessionUser?.role === "teacher" ? (
                     <OpenModalButton
                       modalComponent={
                         <DeleteAssignmentModal
-                          assignmentId={assignment.id}
-                          studentId={assignment.student.id}
+                          assignmentId={assignment?.id}
+                          studentId={assignment?.student?.id}
                         />
                       }
                       buttonText={"Remove Assignment"}

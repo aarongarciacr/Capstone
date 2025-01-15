@@ -1,15 +1,12 @@
 .assignments-page {
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    height: 100vh;
-    width: 100vw;
-    position: relative; 
-    overflow: hidden; 
-    box-sizing: border-box; 
+    position: relative;
+    box-sizing: border-box;
+    flex-grow: 1; /* Let it expand within the parent */
+    overflow: visible; /* No scrolling here */
 }
+
 
 .h1-assignments{
     display: flex;
@@ -17,17 +14,14 @@
     align-items: center;
     width: 100%;
     height: 10%;
-
+    padding-top: 50px;
 }
 
 .assignmentsPage-assignments-container {
     margin-top: 0;
-    /* height: calc(80vh - 50px); */
-    /* overflow-y: auto; */
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px;
     z-index: 10;
     gap: 20px; 
@@ -42,6 +36,15 @@
      height: fit-content;
      padding: 20px;
      margin: auto;
+     transform: all 0.3 ease;
+}
+
+.assignmentPage-assignment-box:hover {
+
+    background-color: rgba(81, 31, 128, 0.877);
+    position: relative;
+    top: -5px;
+
 }
 
 .assignmentPage-exercise-box {

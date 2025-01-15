@@ -10,6 +10,7 @@ import { fetchGetAllExercises, fetchStartExercise } from "../../store/exercise";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeleteExerciseModal from "./DeleteExerciseModal";
 import CreateExerciseModel from "./CreateExerciseModal";
+import EditExercisePage from "./EditExercisePage";
 
 function ExercisesPage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
@@ -34,6 +35,8 @@ function ExercisesPage() {
     <main>
       <div className="exercises-page">
         <h1 className="h1-exercises">Exercises</h1>
+        <br></br>
+        <br></br>
         {sessionUser.role === "teacher" && (
           <OpenModalButton
             modalComponent={<CreateExerciseModel navigate={navigate} />}
@@ -54,13 +57,16 @@ function ExercisesPage() {
                 <div className="start-btn-container">
                   {sessionUser.role === "teacher" ? (
                     <>
-                      <button
-                        onClick={() => navigate(`${exercise.id}/edit`)}
-                        type="button"
-                        className="edit-button"
-                      >
-                        Edit
-                      </button>
+                      <OpenModalButton
+                        modalComponent={
+                          <EditExercisePage
+                            exerciseId={exercise.id}
+                            navigate={navigate}
+                          />
+                        }
+                        buttonText={"Edit"}
+                        className={"delete-button"}
+                      />
                       <OpenModalButton
                         modalComponent={
                           <DeleteExerciseModal exerciseId={exercise.id} />

@@ -1,0 +1,61 @@
+.assign-modal-ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.section-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+}
+
+.singleExercise-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* padding: 15px; */
+
+}
+
+.exercisePage-exercise-box{
+    text-align: left;
+    width: 100%;
+}
+
+.section-box::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px;
+}
+
+.section-box::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 10px; 
+}
+
+.section-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg,  rgba(75, 9, 121, 0.9), rgba(252, 0, 255, 0.8),); 
+    border-radius: 10px; 
+    border: 1px solid rgba(67, 20, 112, 0.5); 
+}
+
+.section-box::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, rgba(252, 0, 255, 1), rgba(75, 9, 121, 1)); 
+}
+
+
+.section-box::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(45deg, rgba(255, 100, 255, 1), rgba(121, 0, 200, 1)); 
+}
+

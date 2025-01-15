@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { fetchGetAllExercises, fetchPostExercise } from "../../store/exercise";
+import { fetchAddQuestions } from "../../store/question";
 import { useModal } from "../../context/Modal";
-// import "./CreateExerciseModal.css";
+import "./CreateExerciseModal.css";
 
 function CreateExerciseModel({ navigate }) {
   const sessionUser = useSelector((state) => state.userSession?.user);
@@ -86,11 +87,16 @@ function CreateExerciseModel({ navigate }) {
     };
 
     try {
-      await dispatch(fetchPostExercise(newExercise));
+      const createdExercise = await dispatch(fetchPostExercise(newExercise));
+      if (createdExercise && createdExercise.id) {
+        await dispatch(fetchAddQuestions(createdExercise.id, { questions }));
+      }
+
+      // Fetch updated exercises
       await dispatch(fetchGetAllExercises());
       alert("Exercise created successfully!");
 
-      navigate("/exercises");
+      // navigate("/exercises");
       closeModal();
     } catch (error) {
       console.error("Error creating exercise:", error);
@@ -100,7 +106,7 @@ function CreateExerciseModel({ navigate }) {
   return (
     <div className="create-exercise-modal">
       <h1>Create New Exercise</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="form-container">
         <div className="input-container">
           <h2>Name</h2>
           <input
@@ -122,12 +128,16 @@ function CreateExerciseModel({ navigate }) {
         </div>
         <div className="input-container">
           <h2>Difficulty</h2>
-          <input
-            type="text"
-            placeholder="Difficulty (Beginner, Intermediate, Advanced)"
+          <select
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
-          />
+          >
+            <option value={"Beginner"}>Beginner</option>
+            <option value={"Intermediate"}>Intermediate</option>
+
+            <option value={"Advanced"}>Advanced</option>
+          </select>
+
           {errors.difficulty && <p className="error">{errors.difficulty}</p>}
         </div>
         <div className="input-container">
@@ -143,7 +153,7 @@ function CreateExerciseModel({ navigate }) {
         <div className="questions-container">
           <h2>Questions</h2>
           {questions.map((question, qIndex) => (
-            <div className="question-box" key={qIndex}>
+            <div className="createExercise-question-box" key={qIndex}>
               <input
                 type="text"
                 placeholder={`Question ${qIndex + 1}`}
@@ -181,7 +191,7 @@ function CreateExerciseModel({ navigate }) {
               </select>
             </div>
           ))}
-          <button type="button" onClick={addQuestion}>
+          <button type="button" onClick={addQuestion} className="start-button">
             Add Question
           </button>
         </div>
@@ -190,9 +200,11 @@ function CreateExerciseModel({ navigate }) {
           <p className="error">{errors.correctAnswer}</p>
         )}
         {errors.options && <p className="error">{errors.options}</p>}
-        <button type="submit" className="submit-button">
-          Create Exercise
-        </button>
+        <div className="last-button">
+          <button type="submit" className="start-button">
+            Create Exercise
+          </button>
+        </div>
       </form>
     </div>
   );
