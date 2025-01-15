@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import { fetchGetQuestions } from "../../store/question";
 
 function SessionPageTeacher() {
-  const { studentId, sessionId } = useParams();
+  const { sessionId } = useParams();
   const sessionUser = useSelector((state) => state.userSession?.user);
   const session = useSelector((state) => state.sessions?.singleSession || {});
   const questions = useSelector((state) => state.questions?.questions);
