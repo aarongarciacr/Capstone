@@ -18,7 +18,6 @@ function StatsPageTeacher() {
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("sessions", sessions);
   useEffect(() => {
     if (studentId) {
       dispatch(fetchGetStats(studentId));

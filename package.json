@@ -1,0 +1,17 @@
+{
+  "name": "ear-triner",
+  "version": "1.0.0",
+  "description": "Ear Trainer Pro is a comprehensive ear training application designed to help users improve their musical hearing skills. The platform offers customizable exercises for interval recognition, chord identification, and other music theory concepts. Teachers can assign exercises to students, track their progress, and provide feedback.",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm --prefix backend install backend",
+    "dev:backend": "npm install --prefix backend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend",
+    "build": "npm run --prefix backend build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -18,7 +18,6 @@ function AssignmentsPageTeacher() {
     (state) => state.assignments?.studentAssignments?.[studentId]?.assignments
   );
 
-  console.log("assignment", assignments);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -15,7 +15,6 @@ function SessionPageTeacher() {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const session = useSelector((state) => state.sessions?.singleSession || {});
   const questions = useSelector((state) => state.questions?.questions);
-  console.log(studentId, sessionId);
   const dispatch = useDispatch();
 
   useEffect(() => {

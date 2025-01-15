@@ -11,7 +11,6 @@ import "react-multi-carousel/lib/styles.css";
 function StudentsPage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const students = useSelector((state) => state.stats?.students);
-  console.log("students", students);
   const dispatch = useDispatch();
 
   useEffect(() => {
