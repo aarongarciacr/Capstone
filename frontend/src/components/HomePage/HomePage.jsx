@@ -14,10 +14,11 @@ function HomePage() {
   const sessionUser = useSelector((state) => state.userSession.user);
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
-  if (sessionUser.role === "teacher") {
-    return (
-      <main>
-        <div className="homepage">
+
+  return (
+    <main>
+      <div className="homepage">
+        {sessionUser?.role === "teacher" ? (
           <Link to="/students" className="students-container">
             <Lottie
               animationData={StudentLottie}
@@ -27,50 +28,18 @@ function HomePage() {
               <h2>Students</h2>
             </div>
           </Link>
-          <Link to="/assignments" className="assignment-container">
+        ) : (
+          <Link to="/stats" className="stats-container">
             <Lottie
-              animationData={AssignmentLottie}
+              animationData={StatsLottie}
               style={{ width: "50%", height: "50%" }}
             />
-            <div className="assignment-box">
-              <h2>Assignments</h2>
+            <div className="stats-box">
+              <h2>Stats</h2>
             </div>
           </Link>
-          <Link to="/exercises" className="exercise-container">
-            <Lottie
-              animationData={ExercisesLottie}
-              style={{ width: "50%", height: "50%" }}
-            />
-            <div className="exercise-box">
-              <h2>Exercises</h2>
-            </div>
-          </Link>
-          <div className="astro-ctn">
-            <Lottie animationData={Astronauta} />
-          </div>
-          <div className="logo-ctn">
-            <Lottie animationData={LogoLottie} />
-          </div>
-          <div className="guy-ctn">
-            <Lottie animationData={GuyLottie} />
-          </div>
-        </div>
-      </main>
-    );
-  }
+        )}
 
-  return (
-    <main>
-      <div className="homepage">
-        <Link to="/stats" className="stats-container">
-          <Lottie
-            animationData={StatsLottie}
-            style={{ width: "50%", height: "50%" }}
-          />
-          <div className="stats-box">
-            <h2>Stats</h2>
-          </div>
-        </Link>
         <Link to="/assignments" className="assignment-container">
           <Lottie
             animationData={AssignmentLottie}
