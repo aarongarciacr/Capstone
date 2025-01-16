@@ -41,7 +41,7 @@ function ExercisesPage() {
           <OpenModalButton
             modalComponent={<CreateExerciseModel navigate={navigate} />}
             buttonText={"Create New Exercise"}
-            className={"delete-button"}
+            className={"create-exercise-button"}
           />
         )}
         <section className="exercisesPage-exercises-container">

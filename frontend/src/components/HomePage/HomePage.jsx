@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 import "./HomePage.css";
 
 function HomePage() {
-  const sessionUser = useSelector((state) => state.userSession.user);
+  const sessionUser = useSelector((state) => state.userSession?.user);
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 

@@ -6,6 +6,9 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useNavigate } from "react-router-dom";
+import ProfileLottie from "../../assets/lotties/profile.json";
+import Lottie from "lottie-react";
+import "./Navigation.css";
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -40,20 +43,25 @@ function ProfileButton() {
     dispatch(thunkLogout());
     closeMenu();
   };
-
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
+      <div className="profile-container" onClick={toggleMenu}>
+        <Lottie animationData={ProfileLottie} />
+      </div>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
               <li>
-                <button onClick={logout}>Log Out</button>
+                <h3>Hello, {user.username}!</h3>
+              </li>
+              <li>
+                <h3>{user.email}</h3>
+              </li>
+              <li>
+                <button onClick={logout} className="logout-button">
+                  Log Out
+                </button>
               </li>
             </>
           ) : (

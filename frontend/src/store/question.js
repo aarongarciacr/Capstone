@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_QUESTIONS = "questions/GET_QUESTIONS";
 const POST_QUESTIONS = "questions/POST_QUESTIONS";
 const UPDATE_QUESTION = "questions/UPDATE_QUESTION";
+const DELETE_QUESTION = "questions/DELETE_QUESTIONS";
 
 const getQuestions = (questions) => ({
   type: GET_QUESTIONS,
@@ -19,6 +20,11 @@ const updateQuestion = (exerciseId, questionId, question) => ({
   type: UPDATE_QUESTION,
   exerciseId,
   question,
+  questionId,
+});
+
+const deleteQuestion = (questionId) => ({
+  type: DELETE_QUESTION,
   questionId,
 });
 
@@ -69,6 +75,22 @@ export const fetchUpdateQuestion =
     }
   };
 
+export const fetchDeleteQuestions =
+  (exerciseId, questionId) => async (dispatch) => {
+    const response = await csrfFetch(
+      `/api/exercises/${exerciseId}/questions/${questionId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.ok) {
+      dispatch(deleteQuestion(questionId));
+      return true;
+    }
+    return false;
+  };
+
 const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
@@ -88,6 +110,15 @@ const questionsReducer = (state = initialState, action) => {
         ...state,
         questions: state.questions?.map((q) =>
           q.id === questionId ? { ...q, ...question } : q
+        ),
+      };
+    }
+    case DELETE_QUESTION: {
+      const { questionId } = action;
+      return {
+        ...state,
+        questions: state.questions?.filter(
+          (question) => question.id !== questionId
         ),
       };
     }

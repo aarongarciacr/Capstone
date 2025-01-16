@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import BooksLottie from "../../assets/lotties/books.json";
 import DogLottie from "../../assets/lotties/dogWithHeadphones.json";
+import LoadLottie from "../../assets/lotties/loading.json";
 import Lottie from "lottie-react";
 import "./AssignmentsPage.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 import {
   fetchCompleteAssignment,
@@ -13,16 +14,26 @@ import {
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeleteAssignmentModal from "./DeleteAssignmentModal";
 import { fetchStartExercise } from "../../store/exercise";
+import Loader from "../Loader/loader";
 
 function AssignmentsPage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const assignments = useSelector((state) => state.assignments?.assignments);
+  const [isLoading, setIsLoading] = useState(!sessionUser);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchGetAssignments());
-  }, [dispatch]);
+    if (!assignments) {
+      setIsLoading(true);
+      dispatch(fetchGetAssignments()).finally(() => setIsLoading(false));
+    }
+  }, [dispatch, assignments]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 

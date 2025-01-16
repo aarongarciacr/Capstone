@@ -10,6 +10,7 @@
 
 .h1-exercises{
     padding-top: 50px;
+    z-index: 10;
 }
 
 .exercisesPage-exercises-container {
@@ -52,7 +53,7 @@
     gap: 30px;
 }
 
-.edit-button, .delete-button {
+.edit-button, .delete-button, .create-exercise-button {
     --glow-color: rgb(217, 176, 255);
     --glow-spread-color: rgba(191, 123, 255, 0.781);
     --enhanced-glow-color: rgb(231, 206, 255);
@@ -72,12 +73,14 @@
     position: relative;
     transition: all 0.3s;
     cursor: pointer;
+    z-index: 10;
+
     }
   
   
 
    .edit-button:hover,
-   .delete-button:hover {
+   .delete-button:hover,.create-exercise-button:hover {
     color: var(--btn-color);
     background-color: var(--glow-color);
     box-shadow: 0 0 1em .25em var(--glow-color),
@@ -88,7 +91,8 @@
   
 
  .edit-button:active,
- .delete-button:active {
+ .delete-button:active,
+ .create-exercise-button:active {
     box-shadow: 0 0 0.6em .25em var(--glow-color),
           0 0 2.5em 2em var(--glow-spread-color),
           inset 0 0 .5em .25em var(--glow-color);

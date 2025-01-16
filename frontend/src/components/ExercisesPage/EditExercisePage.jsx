@@ -6,7 +6,10 @@ import {
   fetchUpdateExercise,
   fetchGetAllExercises,
 } from "../../store/exercise";
-import { fetchUpdateQuestion } from "../../store/question";
+import {
+  fetchUpdateQuestion,
+  fetchDeleteQuestions,
+} from "../../store/question";
 import "./EditExercisePage.css";
 import { useModal } from "../../context/Modal";
 
@@ -79,6 +82,25 @@ function EditExercisePage({ exerciseId }) {
       ...prev,
       { questionText: "", correctAnswer: "", options: ["", "", ""] },
     ]);
+  };
+
+  const handleDeleteQuestion = async (exerciseId, questionId) => {
+    if (window.confirm("Are you sure you want to delete this question?")) {
+      try {
+        const success = await dispatch(
+          fetchDeleteQuestions(exerciseId, questionId)
+        );
+        if (success) {
+          setQuestions((prev) => prev.filter((q) => q.id !== questionId)); // Update local state
+          alert("Question deleted successfully.");
+        } else {
+          alert("Failed to delete the question.");
+        }
+      } catch (error) {
+        console.error("Failed to delete question:", error);
+        alert("An error occurred while deleting the question.");
+      }
+    }
   };
 
   const onSubmit = async (e) => {
@@ -215,6 +237,18 @@ function EditExercisePage({ exerciseId }) {
                   </option>
                 ))}
               </select>
+              {/* <OpenModalButton
+                modalComponent={<DeleteQuestionModal />}
+                buttonText={"Delete Question"}
+                className={"start-button"}
+              /> */}
+              <button
+                type="button"
+                className="delete-button"
+                onClick={() => handleDeleteQuestion(exerciseId, question.id)}
+              >
+                Delete Question
+              </button>
             </div>
           ))}
           <button type="button" onClick={addQuestion} className="start-button">
