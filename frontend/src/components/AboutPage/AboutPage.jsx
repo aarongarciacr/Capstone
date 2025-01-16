@@ -8,9 +8,9 @@ function AboutPage() {
           <h1>About Us</h1>;
           <p>
             Welcome to Ear Trainer, your ultimate platform for personalized
-            music education and practice. Whether you're a teacher looking to
-            manage and assign exercises to your students or a student eager to
-            improve your music skills, Ear Trainer has everything you need to
+            music education and practice. Whether you&apos;re a teacher looking
+            to manage and assign exercises to your students or a student eager
+            to improve your music skills, Ear Trainer has everything you need to
             grow and succeed. At Ear Trainer, we believe in the transformative
             power of music and the importance of fostering a supportive learning
             environment. Our platform is designed to empower teachers with
@@ -34,7 +34,7 @@ function AboutPage() {
             <li>
               <p>
                 <span className="bold-p">Customizable Exercises:</span> Teachers
-                can create and assign exercises tailored to their students'
+                can create and assign exercises tailored to their students&apos;
                 needs, focusing on areas like melody transcription, chord
                 identification, and interval recognition.
               </p>
@@ -43,7 +43,7 @@ function AboutPage() {
               <p>
                 <span className="bold-p">Student Progress Tracking:</span> With
                 detailed analytics and stats, teachers can monitor their
-                students' performance and provide targeted feedback.
+                students&apos; performance and provide targeted feedback.
               </p>
             </li>{" "}
             <li>
@@ -76,16 +76,17 @@ function AboutPage() {
         <div className="join-container">
           <h1>Join Us</h1>;
           <p>
-            Whether you're a teacher seeking to inspire the next generation of
-            musicians or a student striving to unlock your potential, Ear
-            Trainer is here to guide you every step of the way. Together, let’s
-            make learning music a more rewarding and joyful experience.
+            Whether you&apos;re a teacher seeking to inspire the next generation
+            of musicians or a student striving to unlock your potential, Ear
+            Trainer is here to guide you every step of the way. Together,
+            let&apos;s make learning music a more rewarding and joyful
+            experience.
           </p>
         </div>
         <div className="footer-container">
           <p>
             Thank you for choosing Ear Trainer! If you have any questions,
-            feedback, or ideas, feel free to contact us. Let`&apos;`s make music
+            feedback, or ideas, feel free to contact us. Let&apos;s make music
             together! 🎵
           </p>
         </div>

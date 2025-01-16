@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import BooksLottie from "../../assets/lotties/books.json";
 import DogLottie from "../../assets/lotties/dogWithHeadphones.json";
-import LoadLottie from "../../assets/lotties/loading.json";
 import Lottie from "lottie-react";
 import "./AssignmentsPage.css";
 import { useEffect, useState } from "react";

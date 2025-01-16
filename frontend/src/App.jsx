@@ -18,7 +18,6 @@ import StudentsPage from "./components/StudentsPage/StudentsPage";
 import AssignmentsPageTeacher from "./components/AssignmentsPage/AssignmentPageTeacher";
 import SessionPageTeacher from "./components/SessionPage/SessionPageTeacher";
 import AboutPage from "./components/AboutPage/AboutPage";
-import MusicExercise from "./components/MusicExercise/MusicExercise";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -101,10 +100,6 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutPage />,
-      },
-      {
-        path: "/tone1",
-        element: <MusicExercise />,
       },
     ],
   },
