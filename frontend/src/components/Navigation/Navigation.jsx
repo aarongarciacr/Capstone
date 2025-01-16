@@ -47,6 +47,11 @@ function Navigation({ isLoaded }) {
                 <h2>Exercises</h2>
               </Link>
             </li>
+            <li className="piano-link-container">
+              <Link to="/piano" className="piano-link link">
+                <h2>Piano</h2>
+              </Link>
+            </li>
             <li className="about-link-container">
               <Link to="/about" className="about-link link">
                 <h2>About Us</h2>

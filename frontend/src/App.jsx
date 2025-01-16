@@ -18,6 +18,7 @@ import StudentsPage from "./components/StudentsPage/StudentsPage";
 import AssignmentsPageTeacher from "./components/AssignmentsPage/AssignmentPageTeacher";
 import SessionPageTeacher from "./components/SessionPage/SessionPageTeacher";
 import AboutPage from "./components/AboutPage/AboutPage";
+import PianoPage from "./components/PianoPage/PianoPage";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "/students/:studentId/sessions/:sessionId",
         element: <SessionPageTeacher />,
+      },
+      {
+        path: "/piano",
+        element: <PianoPage />,
       },
       {
         path: "/about",
