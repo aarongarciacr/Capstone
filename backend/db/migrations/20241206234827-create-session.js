@@ -51,11 +51,6 @@ module.exports = {
         endTime: {
           type: Sequelize.DATE,
         },
-        score: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          defaultValue: 0,
-        },
         accuracy: {
           type: Sequelize.FLOAT,
           allowNull: false,

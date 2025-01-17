@@ -33,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       exerciseId: DataTypes.INTEGER,
       startTime: DataTypes.DATE,
       endTime: DataTypes.DATE,
-      score: DataTypes.INTEGER,
       accuracy: DataTypes.FLOAT,
     },
     {

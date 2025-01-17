@@ -91,7 +91,6 @@ function StatsPage() {
                   <p className="session-data">
                     Difficulty: {session.Exercise.difficulty}
                   </p>
-                  <p className="session-data">Score: {session.score}</p>
                   <p className="session-data">Accuracy: {session.accuracy}%</p>
                 </Link>
               ))

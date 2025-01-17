@@ -75,7 +75,6 @@ function StatsPageTeacher() {
                 >
                   <h2>{session.Exercise.name}</h2>
                   <p>Difficulty: {session.Exercise.difficulty}</p>
-                  <p>Score: {session.score}</p>
                   <p>Accuracy: {session.accuracy}%</p>
                 </Link>
               ))

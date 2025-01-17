@@ -48,9 +48,6 @@ function SessionPageTeacher() {
           {new Date(session?.endTime).toLocaleString()}
         </p>
         <p>
-          <strong>Score:</strong> {session?.score}
-        </p>
-        <p>
           <strong>Accuracy:</strong> {session?.accuracy}%
         </p>
       </section>

@@ -18,7 +18,6 @@ module.exports = {
           exerciseId: 1,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 600000),
-          score: 85,
           accuracy: 90.5,
         },
         {
@@ -26,7 +25,6 @@ module.exports = {
           exerciseId: 1,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 605000),
-          score: 60,
           accuracy: 50.5,
         },
         {
@@ -34,7 +32,6 @@ module.exports = {
           exerciseId: 1,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 700000),
-          score: 90,
           accuracy: 95.5,
         },
         {
@@ -42,7 +39,6 @@ module.exports = {
           exerciseId: 2,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 500000),
-          score: 85,
           accuracy: 90.5,
         },
         {
@@ -50,7 +46,6 @@ module.exports = {
           exerciseId: 3,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 600000),
-          score: 100,
           accuracy: 100,
         },
         {
@@ -58,7 +53,6 @@ module.exports = {
           exerciseId: 2,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 1200000),
-          score: 70,
           accuracy: 75.2,
         },
         {
@@ -66,7 +60,6 @@ module.exports = {
           exerciseId: 3,
           startTime: new Date(),
           endTime: new Date(new Date().getTime() + 900000),
-          score: 92,
           accuracy: 98.1,
         },
       ],
