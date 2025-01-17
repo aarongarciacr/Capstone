@@ -33,6 +33,50 @@ function LoginFormModal({ navigate }) {
     }
   };
 
+  const handleTeacherLogIn = async (e) => {
+    e.preventDefault();
+    setErrors({});
+
+    try {
+      await dispatch(
+        thunkLogin({
+          credential: "Demo-lition",
+          password: "password",
+        })
+      );
+      closeModal();
+      navigate("/home");
+    } catch (err) {
+      if (err.errors) {
+        setErrors(err.errors);
+      } else {
+        setErrors({ general: "An unexpected error occurred." });
+      }
+    }
+  };
+
+  const handleStudentLogIn = async (e) => {
+    e.preventDefault();
+    setErrors({});
+
+    try {
+      await dispatch(
+        thunkLogin({
+          credential: "FakeUser1",
+          password: "password2",
+        })
+      );
+      closeModal();
+      navigate("/home");
+    } catch (err) {
+      if (err.errors) {
+        setErrors(err.errors);
+      } else {
+        setErrors({ general: "An unexpected error occurred." });
+      }
+    }
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -60,6 +104,22 @@ function LoginFormModal({ navigate }) {
         <div className="login-btn-container">
           <button className="login-btn" type="submit">
             Log In
+          </button>
+        </div>
+        <div className="demos-btn-container">
+          <button
+            className="demo-teacher-btn"
+            type="submit"
+            onClick={handleTeacherLogIn}
+          >
+            Demo Teacher
+          </button>
+          <button
+            className="demo-student-btn"
+            type="submit"
+            onClick={handleStudentLogIn}
+          >
+            Demo Student
           </button>
         </div>
       </form>

@@ -66,12 +66,12 @@ function ProfileButton() {
           ) : (
             <>
               <OpenModalMenuItem
-                itemText="Log In"
+                itemText={<p style={{ cursor: "pointer" }}>Log In</p>}
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal navigate={navigate} />}
               />
               <OpenModalMenuItem
-                itemText="Sign Up"
+                itemText={<p style={{ cursor: "pointer" }}>Sign Up</p>}
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal navigate={navigate} />}
               />
