@@ -39,7 +39,7 @@ function StatsPageTeacher() {
       <div className="statsPage">
         <h1 className="h1-stats">Stats for Student #{studentId}</h1>
         <button
-          className="start-button view-student-assign-btn"
+          className="signup-btn"
           type="button"
           onClick={() => navigate(`/students/${studentId}/assignments`)}
         >

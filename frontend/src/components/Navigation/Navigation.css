@@ -1,5 +1,3 @@
-
-
 .profile-container {
   width: 100px;
   height: 100px;
@@ -11,18 +9,17 @@
 }
 
 .profile-dropdown {
-  --glow-color: rgb(217, 176, 255);
---glow-spread-color: rgba(191, 123, 255, 0.781);
---enhanced-glow-color: rgb(231, 206, 255);
---btn-color: rgb(100, 61, 136);
+  --glow-color: #7D8597; /* Softer light color */
+  --glow-spread-color: rgba(2, 70, 200, 0.5); /* Spread glow with medium blue */
+  --enhanced-glow-color: #0466C8; /* Enhanced glow with brightest blue */
+  --btn-color: #002855; /* Deep navy blue */
   position: absolute;
   top: 100px; /* Position dropdown relative to the profile icon */
   right: 200px;
   background-color: var(--btn-color);
-  /* border: 1px solid #ddd; */
-  box-shadow: 0 0 .5em .12em var(--glow-color),
-  0 0 1em .5em var(--glow-spread-color),
-  inset 0 0 .35em .12em var(--glow-color);
+  box-shadow: 0 0 0.5em 0.12em var(--glow-color),
+    0 0 1em 0.5em var(--glow-spread-color),
+    inset 0 0 0.35em 0.12em var(--glow-color);
   list-style-type: none;
   padding: 30px;
   border-radius: 8px;
@@ -33,13 +30,10 @@
   gap: 20px;
 }
 
-
-
 .logo {
   border-radius: 50%;
   width: 10rem;
   aspect-ratio: 1 / 1;
-  
 }
 
 ul {
@@ -47,8 +41,8 @@ ul {
 }
 
 .nav-container {
-  background-color: #24052f9c;
-  box-shadow: 0 0 .5em rgb(231, 206, 255);
+  background-color: rgba(2, 62, 125, 0.85); /* Medium blue with transparency */
+  box-shadow: 0 0 0.5em #023E7D; /* Darker blue shadow */
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -64,8 +58,6 @@ ul {
   align-items: center;
   height: 100px;
   overflow: hidden;
-
-
 }
 
 .all-navlinks {
@@ -78,43 +70,39 @@ ul {
   width: 10rem;
 }
 
-
 .logout-button {
-  --glow-color: rgb(217, 176, 255);
-  --glow-spread-color: rgba(191, 123, 255, 0.781);
-  --enhanced-glow-color: rgb(231, 206, 255);
-  --btn-color: rgb(100, 61, 136);
-  border: .15em solid var(--glow-color);
-  padding: .75em 2em;
+  --glow-color: #7D8597; /* Softer light color */
+  --glow-spread-color: rgba(4, 102, 200, 0.5); /* Spread glow with brightest blue */
+  --enhanced-glow-color: #0466C8; /* Enhanced glow with brighter blue */
+  --btn-color: #001845; /* Deep navy */
+  border: 0.15em solid var(--glow-color);
+  padding: 0.75em 2em;
   color: var(--glow-color);
   font-size: 15px;
   font-weight: bold;
   background-color: var(--btn-color);
   border-radius: 1em;
   outline: none;
-  box-shadow: 0 0 .4em .12em var(--glow-color),
-        0 0 2em .4em var(--glow-spread-color),
-        inset 0 0 .33em .12em var(--glow-color);
-  text-shadow: 0 0 .5em var(--glow-color);
+  box-shadow: 0 0 0.4em 0.12em var(--glow-color),
+    0 0 2em 0.4em var(--glow-spread-color),
+    inset 0 0 0.33em 0.12em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
   cursor: pointer;
-  }
+}
 
-
-
- .logout-button:hover {
+.logout-button:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
-  box-shadow: 0 0 .5em .12em var(--glow-color),
-        0 0 2em 1em var(--glow-spread-color),
-        inset 0 0 .35em .12em var(--glow-color);
+  box-shadow: 0 0 0.5em 0.12em var(--glow-color),
+    0 0 2em 1em var(--glow-spread-color),
+    inset 0 0 0.35em 0.12em var(--glow-color);
   cursor: pointer;
 }
 
-
 .logout-button:active {
-  box-shadow: 0 0 0.6em .25em var(--glow-color),
-        0 0 2.5em 2em var(--glow-spread-color),
-        inset 0 0 .5em .25em var(--glow-color);
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
 }

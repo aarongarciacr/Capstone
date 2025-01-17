@@ -2,26 +2,68 @@
     border-radius: 15px;
     padding: 50px;
     text-align: center;
-    background-color: #24052f;
-    box-shadow: 0 0 .5em rgb(231, 206, 255);
-
-}
-
-.login-modal-form {
+    background-color: rgba(0, 40, 85, 0.9); 
+    box-shadow: 0 0 0.5em rgb(240, 247, 244); 
+    color: rgb(212, 221, 228); 
+  }
+  
+  .login-modal-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px 0;
-}
-
-input[type="text"],
-input[type="password"] {
+  }
+  
+  input[type="text"],
+  input[type="password"] {
     border-radius: 5px;
     padding: 8px;
-    background-color: rgb(182, 182, 182);
-    border: 0;
-}
-
-.login-btn-container {
+    background-color: rgb(182, 182, 182); 
+    border: 1px solid rgb(5, 51, 108); 
+    color: rgb(0, 18, 69); 
+    font-size: 1rem; 
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border: 1px solid rgb(4, 102, 200); 
+    box-shadow: 0 0 0.5em rgba(4, 102, 200, 0.5); 
+  }
+  
+  .login-btn-container {
     padding-top: 15px;
-}
+  }
+  
+  button {
+    --glow-color: rgb(240, 247, 244); 
+    --btn-color: rgb(4, 102, 200);
+    --btn-hover-color: rgb(3, 83, 164);
+    border: 0.15em solid var(--glow-color);
+    padding: 1em 2.5em;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: var(--btn-color);
+    color: var(--glow-color);
+    text-shadow: 0 0 0.5em var(--glow-color);
+    box-shadow: 0 0 1em 0.25em var(--glow-color),
+                0 0 4em 1em rgba(4, 102, 200, 0.5),
+                inset 0 0 0.5em 0.25em var(--glow-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--btn-hover-color);
+    box-shadow: 0 0 1.2em 0.25em var(--glow-color),
+                0 0 4em 1.5em rgba(3, 83, 164, 0.5),
+                inset 0 0 0.5em 0.25em var(--glow-color);
+  }
+  
+  button:active {
+    box-shadow: 0 0 0.8em 0.25em var(--glow-color),
+                0 0 3em 1.2em rgba(3, 83, 164, 0.5),
+                inset 0 0 0.4em 0.2em var(--glow-color);
+  }
+  

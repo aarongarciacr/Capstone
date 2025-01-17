@@ -1,5 +1,4 @@
 .create-exercise-modal {
-    /* padding: 50px; */
     min-width: 500px;
     display: flex;
     flex-direction: column;
@@ -7,32 +6,34 @@
     max-height: 700px;
     overflow: auto;
     padding: 10px;
-    
+    background-color: rgba(2, 62, 125, 0.8); 
+    color: #F0F7F4; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 24, 69, 0.5);
 }
 
 .create-exercise-modal::-webkit-scrollbar {
-    width: 12px; 
+    width: 12px;
     height: 12px;
 }
 
 .create-exercise-modal::-webkit-scrollbar-track {
     background: none;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .create-exercise-modal::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg,  rgba(75, 9, 121, 0.9), rgba(252, 0, 255, 0.8),); 
-    border-radius: 10px; 
-    border: 1px solid rgba(67, 20, 112, 0.5); 
+    background: linear-gradient(45deg, #0466C8, #40B6F8); /
+    border-radius: 10px;
+    border: 1px solid rgba(2, 62, 125, 0.5);
 }
 
 .create-exercise-modal::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, rgba(252, 0, 255, 1), rgba(75, 9, 121, 1)); 
+    background: linear-gradient(45deg, #40B6F8, #0353A4);
 }
 
-
 .create-exercise-modal::-webkit-scrollbar-thumb:active {
-    background: linear-gradient(45deg, rgba(255, 100, 255, 1), rgba(121, 0, 200, 1)); 
+    background: linear-gradient(45deg, #49C6FF, #023E7D);
 }
 
 .form-container {
@@ -52,15 +53,25 @@
 
 input[type="text"] {
     width: 70%;
-    padding-top: 10px;
+    padding: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 5px;
+    border: 1px solid #002855;
+    background-color: #7D8597; 
+    color: #F0F7F4; 
 }
 
-textarea, select {
+textarea,
+select {
     width: 100%;
     font-family: inherit;
     font-size: inherit;
-    background-color: #B6B6B6;
+    background-color: #7D8597; 
     border-radius: 5px;
+    border: 1px solid #002855;
+    color: #F0F7F4;
+    padding: 10px;
 }
 
 .questions-container {
@@ -77,13 +88,17 @@ textarea, select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(67, 20, 112, 0.877);
+    background-color: rgba(0, 40, 85, 0.9); 
     border-radius: 20px;
     padding: 20px;
     width: 90%;
     gap: 10px;
-    /* padding: 0; */
-    /* margin: 0; */
+    box-shadow: 0 0 10px rgba(0, 24, 69, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.createExercise-question-box:hover {
+    background-color: rgba(3, 83, 164, 0.9); 
 }
 
 .options-container {
@@ -93,7 +108,7 @@ textarea, select {
     gap: 10px;
 }
 
-.last-button{
+.last-button {
     padding-top: 15px;
     padding-bottom: 50px;
 }

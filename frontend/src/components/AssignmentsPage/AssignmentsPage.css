@@ -7,14 +7,15 @@
     overflow: visible; /* No scrolling here */
 }
 
-
-.h1-assignments{
+.h1-assignments {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 10%;
     padding-top: 50px;
+    /* color: #0466C8; Bright blue for headings */
+    /* text-shadow: 0 0 0.5em #023E7D; Medium blue for shadow */
 }
 
 .assignmentsPage-assignments-container {
@@ -24,40 +25,39 @@
     align-items: center;
     padding: 20px;
     z-index: 10;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .assignmentPage-assignment-box {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(67, 20, 112, 0.877);
-     border-radius: 20px;
-     width: 70%;
-     height: fit-content;
-     padding: 20px;
-     margin: auto;
-     transform: all 0.3 ease;
+    background-color: rgba(0, 40, 85, 0.9); 
+    border-radius: 20px;
+    width: 70%;
+    height: fit-content;
+    padding: 20px;
+    margin: auto;
+    transform: all 0.3 ease;
+    box-shadow: 0 0 0.5em rgba(2, 62, 125, 0.5); 
 }
 
 .assignmentPage-assignment-box:hover {
-
-    background-color: rgba(81, 31, 128, 0.877);
+    background-color: rgba(3, 83, 164, 0.9); 
     position: relative;
     top: -5px;
-
+    box-shadow: 0 0 1em rgba(2, 62, 125, 0.7);
 }
 
 .assignmentPage-exercise-box {
-    /* padding: 20px; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 1.8rem;
     height: fit-content;
+    color: #979DAC; /* Soft gray-blue for text */
 }
 
-
-.lottie{
+.lottie {
     position: fixed;
     z-index: 0;
 }
@@ -72,43 +72,39 @@
     left: -100px;
 }
 
+.start-button{
+  --glow-color: #F0F7F4;
+  --glow-spread-color: rgba(4, 102, 200, 0.7);
+  --enhanced-glow-color: #F0F7F4;
+  --btn-color: #023E7D;
+  border: 0.15em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+}
 
-.start-button {
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
-    border: .15em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 15px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 .8em .25em var(--glow-color),
-          0 0 4em .8em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
-    text-shadow: 0 0 .5em var(--glow-color);
-    position: relative;
-    transition: all 0.3s;
-    cursor: pointer;
-    }
-  
-  
+.start-button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
 
-   .start-button:hover {
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-          0 0 4em 2em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
-    cursor: pointer;
-  }
-  
+.start-button:active{
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
 
- .start-button:active {
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-          0 0 2.5em 2em var(--glow-spread-color),
-          inset 0 0 .5em .25em var(--glow-color);
-  }
+

@@ -4,13 +4,12 @@
     align-items: center;
     overflow-x: hidden;
     width: 100%;
-    /* height: 100vh; */
-
 }
 
-.h1-exercises{
+.h1-exercises {
     padding-top: 50px;
     z-index: 10;
+
 }
 
 .exercisesPage-exercises-container {
@@ -23,21 +22,29 @@
     padding: 20px;
     padding-top: 35px;
     padding-bottom: 100px;
-    overflow: visible;
     z-index: 10;
-    gap: 20px; 
+    gap: 20px;
     height: fit-content;
+    background-color: rgba(2, 62, 125, 0.05); 
 }
 
-.singleExercise-box{
+.singleExercise-box {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(67, 20, 112, 0.877);
-     border-radius: 20px;
-     width: 70%;
-     height: fit-content;
-     padding: 20px;
-     margin: auto;
+    background-color: rgba(0, 40, 85, 0.9); 
+    border-radius: 20px;
+    width: 70%;
+    height: fit-content;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 0 0.5em rgba(0, 24, 69, 0.5); 
+    color: #979DAC;
+    transition: all 0.3s ease;
+}
+
+.singleExercise-box:hover {
+    background-color: rgba(3, 83, 164, 0.9); 
+    transform: translateY(-4px);
 }
 
 .exercisePage-exercise-box {
@@ -45,7 +52,9 @@
     justify-content: center;
     flex-direction: column;
     font-size: 1.8rem;
+    color: #FFFFFF; /* White text for clarity */
 }
+
 .start-btn-container {
     display: flex;
     justify-content: flex-start;
@@ -53,12 +62,13 @@
     gap: 30px;
 }
 
-.edit-button, .delete-button, .create-exercise-button {
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
-    border: .15em solid var(--glow-color);
+.edit-button,
+.delete-button,
+.create-exercise-button {
+    --glow-color: #F0F7F4; /* Light neutral glow */
+    --glow-spread-color: rgba(74, 121, 197, 0.781); /* Soft gradient spread */
+    --btn-color: #023E7D; /* Medium blue button color */
+    border: 0.15em solid var(--glow-color);
     padding: 1em 3em;
     color: var(--glow-color);
     font-size: 15px;
@@ -66,34 +76,31 @@
     background-color: var(--btn-color);
     border-radius: 1em;
     outline: none;
-    box-shadow: 0 0 .8em .25em var(--glow-color),
-          0 0 4em .8em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
-    text-shadow: 0 0 .5em var(--glow-color);
+    box-shadow: 0 0 0.8em 0.25em var(--glow-color),
+        0 0 4em 0.8em var(--glow-spread-color),
+        inset 0 0 0.75em 0.25em var(--glow-color);
+    text-shadow: 0 0 0.5em var(--glow-color);
     position: relative;
     transition: all 0.3s;
     cursor: pointer;
     z-index: 10;
+}
 
-    }
-  
-  
-
-   .edit-button:hover,
-   .delete-button:hover,.create-exercise-button:hover {
+.edit-button:hover,
+.delete-button:hover,
+.create-exercise-button:hover {
     color: var(--btn-color);
     background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-          0 0 4em 2em var(--glow-spread-color),
-          inset 0 0 .75em .25em var(--glow-color);
+    box-shadow: 0 0 1em 0.25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 0.75em 0.25em var(--glow-color);
     cursor: pointer;
-  }
-  
+}
 
- .edit-button:active,
- .delete-button:active,
- .create-exercise-button:active {
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-          0 0 2.5em 2em var(--glow-spread-color),
-          inset 0 0 .5em .25em var(--glow-color);
-  }
+.edit-button:active,
+.delete-button:active,
+.create-exercise-button:active {
+    box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 0.5em 0.25em var(--glow-color);
+}

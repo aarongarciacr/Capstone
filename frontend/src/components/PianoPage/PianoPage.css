@@ -10,7 +10,7 @@
     width: fit-content;
     padding: 35px 40px;
     border-radius: 20px;
-    background: #141414;
+    background: rgb(0, 18, 51);
   }
   .wrapper header {
     display: flex;

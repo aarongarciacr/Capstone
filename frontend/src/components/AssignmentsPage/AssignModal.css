@@ -17,45 +17,44 @@
     padding: 10px;
     box-sizing: border-box;
     padding-bottom: 50px;
+    background-color: rgba(2, 62, 125, 0.1); /* Subtle background color */
+    border-radius: 8px;
 }
 
-.singleExercise-box{
+.singleExercise-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* padding: 15px; */
-
 }
 
-.exercisePage-exercise-box{
+.exercisePage-exercise-box {
     text-align: left;
     width: 100%;
+    color: #979DAC; /* Light gray-blue for text */
 }
 
 .section-box::-webkit-scrollbar {
-    width: 12px; 
+    width: 12px;
     height: 12px;
 }
 
 .section-box::-webkit-scrollbar-track {
-    background: none;
-    border-radius: 10px; 
+    background: rgba(0, 18, 33, 0.1); /* Subtle dark background for the track */
+    border-radius: 10px;
 }
 
 .section-box::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg,  rgba(75, 9, 121, 0.9), rgba(252, 0, 255, 0.8),); 
-    border-radius: 10px; 
-    border: 1px solid rgba(67, 20, 112, 0.5); 
+    background: linear-gradient(45deg, rgba(4, 70, 200, 0.9), rgba(2, 62, 125, 0.8)); /* Gradient thumb */
+    border-radius: 10px;
+    border: 1px solid rgba(0, 24, 69, 0.5); /* Darker border for contrast */
 }
 
 .section-box::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, rgba(252, 0, 255, 1), rgba(75, 9, 121, 1)); 
+    background: linear-gradient(45deg, rgba(4, 70, 200, 1), rgba(2, 62, 125, 1)); /* Brighter gradient on hover */
 }
-
 
 .section-box::-webkit-scrollbar-thumb:active {
-    background: linear-gradient(45deg, rgba(255, 100, 255, 1), rgba(121, 0, 200, 1)); 
+    background: linear-gradient(45deg, rgba(73, 198, 255, 1), rgba(4, 70, 200, 1)); /* Enhanced brightness on active */
 }
-
