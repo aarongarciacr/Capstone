@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Link } from "react-router-dom";
 import StudentLottie from "../../assets/lotties/students.json";
 import AssignmentLottie from "../../assets/lotties/assignments.json";
@@ -9,9 +9,16 @@ import Astronauta from "../../assets/lotties/astronauta.json";
 import GuyLottie from "../../assets/lotties/guy.json";
 import Lottie from "lottie-react";
 import "./HomePage.css";
+import { useEffect } from "react";
+import { restoreUser } from "../../store/user-session";
 
 function HomePage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(restoreUser());
+  }, [dispatch]);
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 
