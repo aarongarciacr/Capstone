@@ -9,8 +9,8 @@ import Lottie from "lottie-react";
 
 function PianoPage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
-  const allKeysRef = useRef([]); // Ref to store all keys without causing re-renders
-  const pressedKeys = useRef(new Set()); // Ref to track currently pressed keys
+  const allKeysRef = useRef([]);
+  const pressedKeys = useRef(new Set());
 
   useEffect(() => {
     const pianoKeys = document.querySelectorAll(".piano-keys .key");
@@ -22,24 +22,20 @@ function PianoPage() {
       return;
     }
 
-    // Populate allKeysRef
     allKeysRef.current = Array.from(pianoKeys).map((key) => key.dataset.key);
 
     const playTune = (key) => {
-      if (pressedKeys.current.has(key)) return; // Prevent repeated plays while the key is held
-      pressedKeys.current.add(key); // Add the key to the pressed set
-
+      if (pressedKeys.current.has(key)) return;
+      pressedKeys.current.add(key);
       const audio = new Audio(`/tunes/${key}.wav`);
-      audio.volume = volumeSlider.value; // Use the current volume setting
-      audio.play(); // Play the sound immediately
+      audio.volume = volumeSlider.value;
+      audio.play();
 
-      // Highlight the pressed key
       const clickedKey = document.querySelector(`[data-key="${key}"]`);
       if (clickedKey) {
         clickedKey.classList.add("active");
       }
 
-      // Remove the active class after the audio finishes
       audio.addEventListener("ended", () => {
         clickedKey?.classList.remove("active");
       });
@@ -50,7 +46,7 @@ function PianoPage() {
       if (clickedKey) {
         clickedKey.classList.remove("active");
       }
-      pressedKeys.current.delete(key); // Remove the key from the pressed set
+      pressedKeys.current.delete(key);
     };
 
     const handleVolume = (e) => {
@@ -58,25 +54,21 @@ function PianoPage() {
     };
 
     const showHideKeys = () => {
-      // Toggle the visibility of the keys
       pianoKeys.forEach((key) => key.classList.toggle("hide"));
     };
 
     const handleKeyDown = (e) => {
-      // If the pressed key is in the allKeys array, play its sound
       if (allKeysRef.current.includes(e.key)) {
         playTune(e.key);
       }
     };
 
     const handleKeyUp = (e) => {
-      // Remove the "active" class and delete the key from the pressed set
       if (allKeysRef.current.includes(e.key)) {
         removeActiveClass(e.key);
       }
     };
 
-    // Add event listeners
     pianoKeys.forEach((key) => {
       key.addEventListener("mousedown", () => playTune(key.dataset.key));
       key.addEventListener("mouseup", () => removeActiveClass(key.dataset.key));
@@ -87,7 +79,6 @@ function PianoPage() {
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
-    // Cleanup event listeners on component unmount
     return () => {
       pianoKeys.forEach((key) => {
         key.removeEventListener("mousedown", () => playTune(key.dataset.key));
@@ -100,7 +91,7 @@ function PianoPage() {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("keyup", handleKeyUp);
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   if (!sessionUser) return <Navigate to="/" replace={true} />;
 
