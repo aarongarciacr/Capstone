@@ -11,6 +11,7 @@ function PianoPage() {
   const sessionUser = useSelector((state) => state.userSession?.user);
   const allKeysRef = useRef([]);
   const pressedKeys = useRef(new Set());
+  const audioElements = useRef({});
 
   useEffect(() => {
     const pianoKeys = document.querySelectorAll(".piano-keys .key");
@@ -24,21 +25,31 @@ function PianoPage() {
 
     allKeysRef.current = Array.from(pianoKeys).map((key) => key.dataset.key);
 
+    // Pre-load all audio files
+    allKeysRef.current.forEach((key) => {
+      const audio = new Audio(`/tunes/${key}.wav`);
+      audio.load(); // Explicitly load the audio
+      audioElements.current[key] = audio;
+    });
+
     const playTune = (key) => {
       if (pressedKeys.current.has(key)) return;
       pressedKeys.current.add(key);
-      const audio = new Audio(`/tunes/${key}.wav`);
-      audio.volume = volumeSlider.value;
-      audio.play();
+
+      const audio = audioElements.current[key];
+      if (audio) {
+        audio.currentTime = 0; // Reset audio to start
+        audio.volume = volumeSlider.value;
+        audio.play();
+      }
 
       const clickedKey = document.querySelector(`[data-key="${key}"]`);
       if (clickedKey) {
         clickedKey.classList.add("active");
+        audio.addEventListener("ended", () => {
+          clickedKey.classList.remove("active");
+        });
       }
-
-      audio.addEventListener("ended", () => {
-        clickedKey?.classList.remove("active");
-      });
     };
 
     const removeActiveClass = (key) => {
@@ -80,6 +91,12 @@ function PianoPage() {
     document.addEventListener("keyup", handleKeyUp);
 
     return () => {
+      // Clean up audio elements
+      Object.values(audioElements.current).forEach((audio) => {
+        audio.pause();
+        audio.src = "";
+      });
+      audioElements.current = {};
       pianoKeys.forEach((key) => {
         key.removeEventListener("mousedown", () => playTune(key.dataset.key));
         key.removeEventListener("mouseup", () =>
