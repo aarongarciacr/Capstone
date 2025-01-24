@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
@@ -34,6 +34,11 @@ function LandingPage() {
               className="login-btn"
             />
           </div>
+          <br />
+          <br />
+          <Link to="/about" className="skip-link">
+            <p>About Us</p>
+          </Link>
           <div className="astro-ctn">
             <Lottie animationData={Astronauta} />
           </div>

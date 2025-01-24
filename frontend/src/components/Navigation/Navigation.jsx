@@ -17,6 +17,8 @@ function Navigation({ isLoaded }) {
             <Lottie animationData={LogoLottie} className="logo link"></Lottie>
           </Link>
         </li>
+        <h1 className="ear-trainer">Ear Trainer</h1>
+
         {sessionUser && (
           <ul className="all-navlinks">
             <li className="home-link-container">
